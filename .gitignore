@@ -1,0 +1,69 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+*.dll
+*.exe
+*.pdb
+*.pidb
+*.sln.docstates
+
+# Visual Studio
+.vs/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+*.log
+*.cache
+*.pidb
+*.sqlite
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.Production.json
+
+# Entity Framework
+*.mdf
+*.ldf
+*.db
+
+# Package Manager
+packages/
+*.nupkg
+
+# Tools
+*.vsix
+*.ide
+
+# Node modules (if any)
+node_modules/
+npm-debug.log
+
+# OS generated
+.DS_Store
+Thumbs.db
