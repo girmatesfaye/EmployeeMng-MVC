@@ -21,14 +21,24 @@ public class EmployeeController : Controller
   }
 
   [HttpGet]
-  public IActionResult Create()
+  public async Task<IActionResult> EmployeeTable()
+  {
+    var employees = await _context.Employees
+        .Include(e => e.Department)
+        .ToListAsync();
+
+    return PartialView("_EmployeeTable", employees);
+  }
+
+  [HttpGet]
+  public IActionResult CreateEmployee()
   {
     return PartialView("_CreateEmployee");
 
   }
 
   [HttpPost]
-  public async Task<IActionResult> Create(EmployeeCreateViewModel employeeCreateViewModel)
+  public async Task<IActionResult> CreateEmployee(EmployeeCreateViewModel employeeCreateViewModel)
   {
     if (employeeCreateViewModel == null)
     {
@@ -38,7 +48,8 @@ public class EmployeeController : Controller
     {
       Name = employeeCreateViewModel.Name,
       Salary = employeeCreateViewModel.Salary,
-      DepartmentId = employeeCreateViewModel.DepartmentId
+      DepartmentId = employeeCreateViewModel.DepartmentId,
+      Status = EmployeeStatus.Active
     };
     _context.Employees.Add(employee);
     await _context.SaveChangesAsync();
@@ -47,7 +58,7 @@ public class EmployeeController : Controller
   }
 
   [HttpGet]
-  public async Task<IActionResult> Edit(int id)
+  public async Task<IActionResult> EditEmployee(int id)
   {
     var employee = await _context.Employees.FindAsync(id);
     if (employee == null)
@@ -58,7 +69,7 @@ public class EmployeeController : Controller
   }
 
   [HttpPost]
-  public async Task<IActionResult> Edit(EmployeeCreateViewModel employeeCreateViewModel)
+  public async Task<IActionResult> EditEmployee(EmployeeCreateViewModel employeeCreateViewModel)
   {
     if (employeeCreateViewModel == null)
     {
@@ -79,6 +90,30 @@ public class EmployeeController : Controller
     return Json(new { success = true, message = "Employee updated successfully" });
   }
 
+  [HttpGet]
+  public async Task<IActionResult> DeleteEmployee(int id)
+  {
+    var employee = await _context.Employees.FindAsync(id);
+    if (employee == null)
+    {
+      return NotFound();
+    }
+    return PartialView("_DeleteEmployee", employee);
+  }
+  [HttpPost]
+  [ActionName("DeleteEmployee")]
+  public async Task<IActionResult> DeleteEmployeeConfirmed(int id)
+  {
+    var employee = await _context.Employees.FindAsync(id);
+    if (employee == null)
+    {
+      return NotFound();
+    }
+    _context.Employees.Remove(employee);
+    await _context.SaveChangesAsync();
+
+    return Json(new { success = true, message = "Employee deleted successfully" });
+  }
 
   [HttpGet]
   public async Task<IActionResult> Details(int id)

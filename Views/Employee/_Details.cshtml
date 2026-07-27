@@ -1,3 +1,5 @@
+@model Employee_Management_System.Models.Employee
+
 <div class="modal fade"
      id="detailsModal">
 
@@ -44,7 +46,22 @@
                     </dt>
 
                     <dd class="col-8">
-                        @(Model.IsActive ? "Active" : "Inactive")
+                        @if (Model.Status == "Active")
+                              {
+                                  <span class="badge bg-success">Active</span>
+                              }
+                              else if (Model.Status == "Inactive")
+                              {
+                                  <span class="badge bg-secondary">Inactive</span>
+                              }
+                              else if (Model.Status == "On Leave")
+                              {
+                                  <span class="badge bg-warning text-dark">On Leave</span>
+                              }
+                              else if (Model.Status == "Suspended")
+                              {
+                                  <span class="badge bg-danger">Suspended</span>
+                              }
                     </dd>
 
                 </dl>
