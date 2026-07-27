@@ -1,0 +1,58 @@
+<div class="modal fade"
+     id="detailsModal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5>Employee Details</h5>
+
+            </div>
+
+            <div class="modal-body">
+
+                <dl class="row">
+
+                    <dt class="col-4">
+                        Name
+                    </dt>
+
+                    <dd class="col-8">
+                        @Model.Name
+                    </dd>
+
+                    <dt class="col-4">
+                        Department
+                    </dt>
+
+                    <dd class="col-8">
+                        @Model.Department
+                    </dd>
+
+                    <dt class="col-4">
+                        Salary
+                    </dt>
+
+                    <dd class="col-8">
+                        @Model.Salary
+                    </dd>
+
+                    <dt class="col-4">
+                        Status
+                    </dt>
+
+                    <dd class="col-8">
+                        @(Model.IsActive ? "Active" : "Inactive")
+                    </dd>
+
+                </dl>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,39 +1,25 @@
+@model List<Employee_Management_System.Models.Employee>
+
 <table class="table table-bordered table-hover">
-
     <thead class="table-dark">
-
         <tr>
-
             <th>ID</th>
-
             <th>Name</th>
-
             <th>Department</th>
-
             <th>Salary</th>
-
             <th>Status</th>
-
             <th>Action</th>
-
         </tr>
-
     </thead>
-
     <tbody>
 
     @foreach(var item in Model)
     {
         <tr>
-
             <td>@item.Id</td>
-
             <td>@item.Name</td>
-
             <td>@item.Department</td>
-
             <td>@item.Salary</td>
-
             <td>
 
                 @if(item.IsActive)
