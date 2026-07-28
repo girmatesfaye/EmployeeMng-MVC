@@ -7,6 +7,7 @@
             <h4>Employee Management</h4>
 
             <button class="btn btn-success"
+                    type="button"
                     id="btnCreateEmployee">
                 Add Employee
             </button>
@@ -50,8 +51,17 @@
 
 </div>
 
-<div id="createEmployeeModal"></div>
-
 <div id="editEmployeeModal"></div>
 
 <div id="detailsModal"></div>
+
+<div class="modal fade" id="createEmployeeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/employee.js"></script>
+}

@@ -1,75 +1,68 @@
-@model Employee_Management_System.Models.Employee
+@model EmployeeCreateViewModel
 
 <form id="createEmployeeForm">
 
-    <div class="modal fade"
-         id="createModal">
+    <div class="modal-header">
 
-        <div class="modal-dialog">
+        <h5 class="modal-title">Add Employee</h5>
 
-            <div class="modal-content">
+        <button class="btn-close"
+                type="button"
+                data-bs-dismiss="modal">
+        </button>
 
-                <div class="modal-header">
+    </div>
 
-                    <h5>Add Employee</h5>
+    <div class="modal-body">
 
-                    <button class="btn-close"
-                            data-bs-dismiss="modal">
-                    </button>
+        <div class="mb-3">
 
-                </div>
+            <label>Name</label>
 
-                <div class="modal-body">
-
-                    <div class="mb-3">
-
-                        <label>Name</label>
-
-                        <input class="form-control"
-                               name="Name"/>
-
-                    </div>
-
-                    <div class="mb-3">
-
-                        <label>Department</label>
-
-                        <input class="form-control"
-                               name="Department"/>
-
-                    </div>
-
-                    <div class="mb-3">
-
-                        <label>Salary</label>
-
-                        <input class="form-control"
-                               name="Salary"/>
-
-                    </div>
-
-                </div>
-
-                <div class="modal-footer">
-
-                    <button class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-
-                        Cancel
-
-                    </button>
-
-                    <button class="btn btn-success">
-
-                        Save
-
-                    </button>
-
-                </div>
-
-            </div>
+            <input class="form-control"
+                   name="Name"/>
 
         </div>
+
+        <div class="mb-3">
+
+            <label>Department Id</label>
+
+            <input class="form-control"
+                   name="DepartmentId"
+                   type="number"/>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Salary</label>
+
+            <input class="form-control"
+                   name="Salary"
+                   type="number"
+                   step="0.01"/>
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+        <button class="btn btn-secondary"
+                type="button"
+                data-bs-dismiss="modal">
+
+            Cancel
+
+        </button>
+
+        <button class="btn btn-success"
+                type="submit">
+
+            Save
+
+        </button>
 
     </div>
 

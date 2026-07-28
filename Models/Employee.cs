@@ -6,7 +6,8 @@ public enum EmployeeStatus
   Inactive,
   OnLeave,
   Suspended,
-  Resigned
+  Resigned,
+  Terminated
 }
 public class Employee
 {

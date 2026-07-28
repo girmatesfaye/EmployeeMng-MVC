@@ -46,19 +46,27 @@
                     </dt>
 
                     <dd class="col-8">
-                        @if (Model.Status == "Active")
+                        @if (Model.Status == EmployeeStatus.Active)
                               {
                                   <span class="badge bg-success">Active</span>
                               }
-                              else if (Model.Status == "Inactive")
+                              else if (Model.Status == EmployeeStatus.Inactive)
                               {
                                   <span class="badge bg-secondary">Inactive</span>
                               }
-                              else if (Model.Status == "On Leave")
+                              else if (Model.Status == EmployeeStatus.Resigned)
+                              {
+                                  <span class="badge bg-dark">Resigned</span>
+                              }
+                              else if (Model.Status == EmployeeStatus.OnLeave)
                               {
                                   <span class="badge bg-warning text-dark">On Leave</span>
                               }
-                              else if (Model.Status == "Suspended")
+                              else if (Model.Status == EmployeeStatus.Terminated)
+                              {
+                                  <span class="badge bg-dark">Terminated</span>
+                              }
+                              else if (Model.Status == EmployeeStatus.Suspended)
                               {
                                   <span class="badge bg-danger">Suspended</span>
                               }
